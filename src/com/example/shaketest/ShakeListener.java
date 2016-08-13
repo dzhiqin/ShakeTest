@@ -53,7 +53,7 @@ public class ShakeListener implements SensorEventListener{
 		sensorManager.unregisterListener(this);
 	}
 	/**
-	 * 设置重力感应监听器，供外部调用
+	 * 设置setOnShakeListener()方法，供外部调用
 	 */
 	public void setOnShakeListener(OnShakeListener listener){
 		onShakeListener=listener;//传递外部接口
@@ -64,8 +64,8 @@ public class ShakeListener implements SensorEventListener{
 		xValue=Math.abs(event.values[0]);
 		yValue=Math.abs(event.values[1]);
 		zValue=Math.abs(event.values[2]);
-		if(xValue>15||yValue>15||zValue>15){
-			//如果某个方向上的加速度大于15m/s2,认为可以触发摇一摇逻辑
+		if(xValue>11||yValue>11||zValue>11){
+			//如果某个方向上的加速度大于11m/s2,认为可以触发摇一摇逻辑
 			onShakeListener.onShake();
 		}
 		
